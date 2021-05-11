@@ -3,7 +3,7 @@
 \docType{data}
 \name{lstGreen}
 \alias{lstGreen}
-\title{Conesa All Colors}
+\title{RColorConesa}
 \format{
 An object of class \code{character} of length 5.
 }
@@ -11,6 +11,6 @@ An object of class \code{character} of length 5.
 lstGreen
 }
 \description{
-Conesa All Colors
+RColorConesa
 }
 \keyword{datasets}

@@ -1,4 +1,4 @@
-#' Conesa All Colors
+#' RColorConesa
 #'
 
 lstGreen = c("#15918A", "#62DED8", "#1FDED4", "#48A49F", "#0D5E5A")
@@ -39,7 +39,6 @@ conesa_cols <- function(...) {
 #' @param n Number of colors you need
 #' @param reverse Boolean indicating whether the palette should be reversed
 #'
-#' @importFrom Hmisc ceil
 colorConesa <- function(n, reverse = F){
   if(N>35){
     stop(paste0("colorConesa can manage at maximum of ", N," colors"))
@@ -48,7 +47,7 @@ colorConesa <- function(n, reverse = F){
   res <- NULL
   for(i in 1:n){
     color <- i %% 7
-    pos <-  ceil(i/7)
+    pos <-  Hmisc::ceil(i/7)
     if(color==1){
       res <- c(res, lstGreen[pos])
     }else if(color==2){
@@ -90,52 +89,47 @@ conesa_palettes <- list(
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments to pass to colorRampPalette()
 #'
-#' @importFrom grDevices colorRampPalette
 conesa_pal <- function(palette = "main", reverse = FALSE, ...) {
   pal <- conesa_palettes[[palette]]
 
   if (reverse) pal <- rev(pal)
 
-  colorRampPalette(pal, ...)
+  grDevices::colorRampPalette(pal, ...)
 }
 
 #' Color scale constructor for conesa colors
 #'
-#' @param palette Character name of palette in conesa_palettes
+#' @param palette Character name of palette in conesa_palettes c("main", "cool", "warm", "hot", "nature", "mixed") are avairable.
 #' @param discrete Boolean indicating whether color aesthetic is discrete or not
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_color_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
-#' @importFrom ggplot2 discrete_scale
-#' @importFrom ggplot2 scale_color_gradientn
 scale_color_conesa <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
   pal <- conesa_pal(palette = palette, reverse = reverse)
 
   if (discrete) {
-    discrete_scale("colour", paste0("conesa_", palette), palette = pal, ...)
+    ggplot2::discrete_scale("colour", paste0("conesa_", palette), palette = pal, ...)
   } else {
-    scale_color_gradientn(colours = pal(256), ...)
+    ggplot2::scale_color_gradientn(colours = pal(256), ...)
   }
 }
 
 #' Fill scale constructor for conesa colors
 #'
-#' @param palette Character name of palette in conesa_palettes
+#' @param palette Character name of palette in conesa_palettes c("main", "cool", "warm", "hot", "nature", "mixed") are avairable.
 #' @param discrete Boolean indicating whether color aesthetic is discrete or not
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
-#' @importFrom ggplot2 discrete_scale
-#' @importFrom ggplot2 scale_fill_gradientn
 scale_fill_conesa <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
   pal <- conesa_pal(palette = palette, reverse = reverse)
 
   if(discrete){
-    discrete_scale("fill", paste0("conesa_", palette), palette = pal, ...)
+    ggplot2::discrete_scale("fill", paste0("conesa_", palette), palette = pal, ...)
   }else{
-    scale_fill_gradientn(colours = pal(256), ...)
+    ggplot2::scale_fill_gradientn(colours = pal(256), ...)
   }
 
 }

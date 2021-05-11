@@ -7,7 +7,7 @@
 scale_fill_conesa(palette = "main", discrete = TRUE, reverse = FALSE, ...)
 }
 \arguments{
-\item{palette}{Character name of palette in conesa_palettes}
+\item{palette}{Character name of palette in conesa_palettes c("main", "cool", "warm", "hot", "nature", "mixed") are avairable.}
 
 \item{discrete}{Boolean indicating whether color aesthetic is discrete or not}
 
