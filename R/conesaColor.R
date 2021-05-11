@@ -1,5 +1,3 @@
-#' RColorConesa
-#'
 
 lstGreen = c("#15918A", "#62DED8", "#1FDED4", "#48A49F", "#0D5E5A")
 lstOrange = c("#F58A53", "#F7BB9E", "#C26D42", "#754228", "#75594B")
@@ -9,8 +7,6 @@ lstPurple = c("#9F7BB8", "#9048C3", "#725985", "#302638", "#291538")
 lstPink = c("#FDA3D1", "#FD56AC", "#C981A6", "#7D2A55", "#7D5067")
 lstMagenta = c("#EE446F", "#F08EA6", "#BA3657", "#6E2033", "#6E414C")
 
-#' Conesa Colors
-#'
 conesa_colors <- c(`green` = "#15918A",
                    `orange` = "#F58A53",
                    `yellow` = "#FDC659",
@@ -39,6 +35,7 @@ conesa_cols <- function(...) {
 #' @param n Number of colors you need
 #' @param reverse Boolean indicating whether the palette should be reversed
 #'
+#' @export
 colorConesa <- function(n, reverse = F){
   if(N>35){
     stop(paste0("colorConesa can manage at maximum of ", N," colors"))
@@ -105,6 +102,7 @@ conesa_pal <- function(palette = "main", reverse = FALSE, ...) {
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_color_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
+#' @export
 scale_color_conesa <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
   pal <- conesa_pal(palette = palette, reverse = reverse)
 
@@ -123,6 +121,7 @@ scale_color_conesa <- function(palette = "main", discrete = TRUE, reverse = FALS
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
+#' @export
 scale_fill_conesa <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
   pal <- conesa_pal(palette = palette, reverse = reverse)
 
