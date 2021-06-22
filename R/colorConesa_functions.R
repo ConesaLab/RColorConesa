@@ -38,7 +38,7 @@ conesa_cols <- function(...) {
 #'
 #' @export
 colorConesa <- function(n, reverse = F){
-  if(n>N){
+  if(n>sum(length(lstGreen), length(lstOrange), length(lstYellow), length(lstBlue), length(lstPurple), length(lstPink), length(lstMagenta))){
     stop(paste0("colorConesa can manage at maximum of ", N," colors"))
   }
 
