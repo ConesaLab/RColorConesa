@@ -3,3 +3,4 @@
 export(colorConesa)
 export(scale_color_conesa)
 export(scale_fill_conesa)
+import(ggplot2)

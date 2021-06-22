@@ -1,3 +1,4 @@
+#' @import ggplot2
 
 lstGreen = c("#15918A", "#62DED8", "#1FDED4", "#48A49F", "#0D5E5A")
 lstOrange = c("#F58A53", "#F7BB9E", "#C26D42", "#754228", "#75594B")
@@ -37,7 +38,7 @@ conesa_cols <- function(...) {
 #'
 #' @export
 colorConesa <- function(n, reverse = F){
-  if(N>35){
+  if(n>N){
     stop(paste0("colorConesa can manage at maximum of ", N," colors"))
   }
 
