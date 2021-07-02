@@ -2,15 +2,22 @@
 % Please edit documentation in R/colorConesa_functions.R
 \name{colorConesa}
 \alias{colorConesa}
-\title{Return all conesa colors by number of colors you need}
+\title{colorConesa}
 \usage{
-colorConesa(n, reverse = F)
+colorConesa(n, reverse = F, palette = "mixed")
 }
 \arguments{
 \item{n}{Number of colors you need}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
+
+\item{palette}{Character name of palette in conesa_palettes c("main", "cool", "cold", "warm", "hot", "nature", "mixed") are avairable.}
 }
 \description{
-Return all conesa colors by number of colors you need
+Returns as many colours as you need from ConesaLab's color palettes.
+}
+\examples{
+colorSpecies <- colorConesa(3, palette = "main")
+plot(x = iris$Sepal.Length, y = iris$Sepal.Width, col = colorSpecies[iris$Species], pch = 16)
+
 }

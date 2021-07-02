@@ -1,13 +1,5 @@
 #' @import ggplot2
 
-lstGreen = c("#15918A", "#62DED8", "#1FDED4", "#48A49F", "#0D5E5A")
-lstOrange = c("#F58A53", "#F7BB9E", "#C26D42", "#754228", "#75594B")
-lstYellow = c("#FDC659", "#FDDFA4", "#C99E47", "#7D622C", "#7D6E51")
-lstBlue = c("#74CDF0", "#BDE3F2", "#5BA1BD", "#366070", "#586970")
-lstPurple = c("#9F7BB8", "#9048C3", "#725985", "#302638", "#291538")
-lstPink = c("#FDA3D1", "#FD56AC", "#C981A6", "#7D2A55", "#7D5067")
-lstMagenta = c("#EE446F", "#F08EA6", "#BA3657", "#6E2033", "#6E414C")
-
 conesa_colors <- c(`green` = "#15918A",
                    `orange` = "#F58A53",
                    `yellow` = "#FDC659",
@@ -15,8 +7,6 @@ conesa_colors <- c(`green` = "#15918A",
                    `purple` = "#9F7BB8",
                    `pink` = "#FDA3D1",
                    `magenta` = "#EE446F")
-
-N <- length(lstOrange) + length(lstGreen) + length(lstYellow) + length(lstPink) + length(lstBlue) + length(lstMagenta) + length(lstPurple)
 
 #' Function to extract conesa colors as hex codes
 #'
@@ -31,54 +21,17 @@ conesa_cols <- function(...) {
   conesa_colors[cols]
 }
 
-#' Return all conesa colors by number of colors you need
-#'
-#' @param n Number of colors you need
-#' @param reverse Boolean indicating whether the palette should be reversed
-#'
-#' @export
-colorConesa <- function(n, reverse = F){
-  if(n>sum(length(lstGreen), length(lstOrange), length(lstYellow), length(lstBlue), length(lstPurple), length(lstPink), length(lstMagenta))){
-    stop(paste0("colorConesa can manage at maximum of ", N," colors"))
-  }
-
-  res <- NULL
-  for(i in 1:n){
-    color <- i %% 7
-    pos <-  Hmisc::ceil(i/7)
-    if(color==1){
-      res <- c(res, lstGreen[pos])
-    }else if(color==2){
-      res <- c(res, lstOrange[pos])
-    }else if(color==3){
-      res <- c(res, lstYellow[pos])
-    }else if(color==4){
-      res <- c(res, lstBlue[pos])
-    }else if(color==5){
-      res <- c(res, lstPurple[pos])
-    }else if(color==6){
-      res <- c(res, lstPink[pos])
-    }else if(color==0){
-      res <- c(res, lstMagenta[pos])
-    }
-  }
-
-  if(reverse){
-    return(rev(res))
-  }else{
-    return(res)
-  }
-}
-
 #' Conesa color palette
-#'
 conesa_palettes <- list(
   `main`  = conesa_cols("green", "orange", "yellow"),
   `nature`= conesa_cols("green", "yellow"),
-  `cool`  = conesa_cols("blue", "purple"),
+
   `hot`   = conesa_cols("orange", "magenta"),
-  `warm`  = conesa_cols("magenta", "blue"),
-  `mixed` = conesa_cols("green", "orange", "yellow", "blue", "pruple", "pink", "magenta")
+  `warm`  = conesa_cols("blue", "magenta"),
+  `cold`  = conesa_cols("blue", "purple"),
+
+  `cool`  = conesa_cols("blue", "purple"),
+  `mixed` = conesa_cols("green", "orange", "yellow", "blue", "pink", "purple", "magenta")
 )
 
 #' Return function to interpolate a conesa color palette
@@ -95,6 +48,28 @@ conesa_pal <- function(palette = "main", reverse = FALSE, ...) {
   grDevices::colorRampPalette(pal, ...)
 }
 
+#' colorConesa
+#'
+#' Returns as many colours as you need from ConesaLab's color palettes.
+#'
+#' @param n Number of colors you need
+#' @param reverse Boolean indicating whether the palette should be reversed
+#' @param palette Character name of palette in conesa_palettes c("main", "cool", "cold", "warm", "hot", "nature", "mixed") are avairable.
+#'
+#' @examples
+#' colorSpecies <- colorConesa(3, palette = "main")
+#' plot(x = iris$Sepal.Length, y = iris$Sepal.Width, col = colorSpecies[iris$Species], pch = 16)
+#'
+#' @export
+colorConesa <- function(n, reverse = F, palette = "mixed"){
+  if(!pallete %in% names(conesa_palettes)){
+    message("Pallete musst be some of the following palettes: ", paste(names(conesa_palettes),sep=" ", collapse=", "))
+  }
+
+  pal <- conesa_pal(palette = palette, reverse = reverse)
+  return(pal(n))
+}
+
 #' Color scale constructor for conesa colors
 #'
 #' @param palette Character name of palette in conesa_palettes c("main", "cool", "warm", "hot", "nature", "mixed") are avairable.
@@ -102,6 +77,11 @@ conesa_pal <- function(palette = "main", reverse = FALSE, ...) {
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_color_gradientn(), used respectively when discrete is TRUE or FALSE
+#'
+#' @examples
+#' g <- ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species))
+#' g <- g + geom_point(size = 4)
+#' g <- g + scale_color_conesa(palette = "main")
 #'
 #' @export
 scale_color_conesa <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
@@ -116,11 +96,18 @@ scale_color_conesa <- function(palette = "main", discrete = TRUE, reverse = FALS
 
 #' Fill scale constructor for conesa colors
 #'
-#' @param palette Character name of palette in conesa_palettes c("main", "cool", "warm", "hot", "nature", "mixed") are avairable.
+#' @param palette Character name of palette in conesa_palettes c("main", "cool", "cold", "warm", "hot", "nature", "mixed") are avairable.
 #' @param discrete Boolean indicating whether color aesthetic is discrete or not
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
+#'
+#' @examples
+#' mpg <- ggplot2::mpg
+#' g <- ggplot(mpg, aes(manufacturer, fill = manufacturer))
+#' g <- g + geom_bar()
+#' g <- g + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+#' g <- g + scale_fill_conesa(palette = "mixed")
 #'
 #' @export
 scale_fill_conesa <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {

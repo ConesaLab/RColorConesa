@@ -19,3 +19,9 @@ scale_color_gradientn(), used respectively when discrete is TRUE or FALSE}
 \description{
 Color scale constructor for conesa colors
 }
+\examples{
+g <- ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species))
+g <- g + geom_point(size = 4)
+g <- g + scale_color_conesa(palette = "main")
+
+}

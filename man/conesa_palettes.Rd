@@ -5,7 +5,7 @@
 \alias{conesa_palettes}
 \title{Conesa color palette}
 \format{
-An object of class \code{list} of length 6.
+An object of class \code{list} of length 7.
 }
 \usage{
 conesa_palettes
