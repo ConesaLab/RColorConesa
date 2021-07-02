@@ -7,7 +7,7 @@
 conesa_pal(palette = "main", reverse = FALSE, ...)
 }
 \arguments{
-\item{palette}{Character name of palette in conesa_palettes}
+\item{palette}{Character name of palette in conesa_palettes: c("main", "nature", "sunshine", "hot", "warm", "cold", "complete") are avairable.}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
 

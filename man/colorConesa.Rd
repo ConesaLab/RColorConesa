@@ -4,14 +4,14 @@
 \alias{colorConesa}
 \title{colorConesa}
 \usage{
-colorConesa(n, reverse = F, palette = "mixed")
+colorConesa(n, reverse = F, palette = "complete")
 }
 \arguments{
 \item{n}{Number of colors you need}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
 
-\item{palette}{Character name of palette in conesa_palettes c("main", "cool", "cold", "warm", "hot", "nature", "mixed") are avairable.}
+\item{palette}{Character name of palette in conesa_palettes: c("main", "nature", "sunshine", "hot", "warm", "cold", "complete") are avairable.}
 }
 \description{
 Returns as many colours as you need from ConesaLab's color palettes.

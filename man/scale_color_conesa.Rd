@@ -7,7 +7,7 @@
 scale_color_conesa(palette = "main", discrete = TRUE, reverse = FALSE, ...)
 }
 \arguments{
-\item{palette}{Character name of palette in conesa_palettes c("main", "cool", "warm", "hot", "nature", "mixed") are avairable.}
+\item{palette}{Character name of palette in conesa_palettes: c("main", "nature", "sunshine", "hot", "warm", "cold", "complete") are avairable.}
 
 \item{discrete}{Boolean indicating whether color aesthetic is discrete or not}
 
@@ -20,6 +20,7 @@ scale_color_gradientn(), used respectively when discrete is TRUE or FALSE}
 Color scale constructor for conesa colors
 }
 \examples{
+library(ggplot2)
 g <- ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species))
 g <- g + geom_point(size = 4)
 g <- g + scale_color_conesa(palette = "main")

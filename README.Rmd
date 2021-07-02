@@ -1,0 +1,225 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# RColorConesa
+
+## Installation
+
+You can install the released version of RColorConesa from GitHub with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("ConesaLab/RColorConesa")
+```
+
+## Information
+
+The package RColorConesa is a color packages with different palletes inspired by the corporative image of the Conesa Lab.
+
+![Logo ConesaLab](./images/logo_ConesaLab.png)
+
+## Palettes
+
+RColorConesa consists of seven main colours from which a number of different colour palettes have been created.
+
+```{r palettes, echo=F, warning=F, message=F}
+library(RColorConesa)
+library(ggplot2)
+```
+
+```{r colors, echo=F, warning=F, eval=F}
+paletteList <- getConesaPalettes()
+
+for(palette in names(paletteList)){
+  print(paste0("## ", palette))
+
+  ncolor <- length(paletteList[palette][[1]])
+  colors <- paletteList[palette][[1]]
+  palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
+    scale_fill_conesa(palette = palette) +
+    theme_void()+
+    theme(legend.position="none")
+  print(palette_image)
+}
+```
+
+## Palette - main
+
+```{r palette1, echo=F}
+paletteList <- getConesaPalettes()
+palette = "main"
+
+ncolor <- length(paletteList[palette][[1]])
+colors <- paletteList[palette][[1]]
+palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
+  scale_fill_conesa(palette = palette) +
+  theme_void()+
+  theme(legend.position="none")
+print(palette_image)
+```
+
+## Palette - nature
+
+```{r palette2, echo=F}
+paletteList <- getConesaPalettes()
+palette = "nature"
+
+ncolor <- length(paletteList[palette][[1]])
+colors <- paletteList[palette][[1]]
+palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
+  scale_fill_conesa(palette = palette) +
+  theme_void()+
+  theme(legend.position="none")
+print(palette_image)
+```
+
+## Palette - sunshine
+
+```{r palette3, echo=F}
+paletteList <- getConesaPalettes()
+palette = "sunshine"
+
+ncolor <- length(paletteList[palette][[1]])
+colors <- paletteList[palette][[1]]
+palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
+  scale_fill_conesa(palette = palette) +
+  theme_void()+
+  theme(legend.position="none")
+print(palette_image)
+```
+
+## Palette - hot
+
+```{r palette4, echo=F}
+paletteList <- getConesaPalettes()
+palette = "hot"
+
+ncolor <- length(paletteList[palette][[1]])
+colors <- paletteList[palette][[1]]
+palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
+  scale_fill_conesa(palette = palette) +
+  theme_void()+
+  theme(legend.position="none")
+print(palette_image)
+```
+
+## Palette - warm
+
+```{r palette5, echo=F}
+paletteList <- getConesaPalettes()
+palette = "warm"
+
+ncolor <- length(paletteList[palette][[1]])
+colors <- paletteList[palette][[1]]
+palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
+  scale_fill_conesa(palette = palette) +
+  theme_void()+
+  theme(legend.position="none")
+print(palette_image)
+```
+
+## Palette - cold
+
+```{r palette6, echo=F}
+paletteList <- getConesaPalettes()
+palette = "cold"
+
+ncolor <- length(paletteList[palette][[1]])
+colors <- paletteList[palette][[1]]
+palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
+  scale_fill_conesa(palette = palette) +
+  theme_void()+
+  theme(legend.position="none")
+print(palette_image)
+```
+
+## Palette - complete
+
+```{r palette7, echo=F}
+paletteList <- getConesaPalettes()
+palette = "complete"
+
+ncolor <- length(paletteList[palette][[1]])
+colors <- paletteList[palette][[1]]
+palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
+  scale_fill_conesa(palette = palette) +
+  theme_void()+
+  theme(legend.position="none")
+print(palette_image)
+```
+
+## Example - plot()
+
+This is a basic example which shows you how to solve a common problem using the databases "iris" and the basic ploting function in R. The objetive is color by spsecie using the RcolorConesa packages.
+
+To do this, we can use the funtion "colorConesa()" which returns a list of as many colors of you needed.
+
+```{r example plot}
+library(RColorConesa)
+n_species <- length(levels(iris$Species))
+colorSpecies <- colorConesa(n_species, palette = "main")
+plot(x = iris$Sepal.Length, y = iris$Sepal.Width, col = colorSpecies[iris$Species], pch = 16)
+legend("bottomleft", legend=c(levels(iris$Species)), col=colorSpecies, lty=1)
+```
+
+## Example - ggplot()
+
+In case of ggplot(), if we want to plot by color it is much more easier to do with the functions "scale_color_conesa()" and "scale_fill_conesa()". We plot the same result we made before.
+
+```{r example ggplot}
+library(RColorConesa)
+library(ggplot2)
+
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  geom_point(size = 4) +
+  scale_color_conesa(palette = "main")
+```
+
+A good point for the packages is you can use more colors that it already have. For example, we are going to color each Manufacturer from the dataset "mpg" from the package "ggplot2".
+
+As you can see, the palette "complete" only have 7 colors, but it can interpolate as much as need it to fill all the categories.
+
+```{r example ggplot - fill}
+library(RColorConesa)
+library(ggplot2)
+
+mpg <- ggplot2::mpg
+
+ggplot(mpg, aes(manufacturer, fill = manufacturer)) +
+  geom_bar() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_conesa(palette = "complete")
+```
+
+Finally, for continuos variables, you can change the parameter discrete to False in the functions "scale_fill_conesa()" and "scale_fill_conesa()".
+
+```{r example - continuous}
+library(RColorConesa)
+library(ggplot2)
+
+df.heatmap <- expand.grid(Var1 = letters[1:15], Var2 = 1:15)
+df.heatmap$score <- runif(nrow(df.heatmap), min = -5, max = 5)
+
+ggplot(df.heatmap, aes(x = Var1, y = Var2, fill = score)) + 
+  geom_tile() + 
+  scale_fill_conesa(palette = "sunshine", discrete = F)
+```
+
+# Contact
+Note that RColorConesa can be updated. If you encounter a problem, please open an issue via GitHub or send an email to pedsalga@upv.edu.es.
+
+# Author
+
+Pedro Salguero García - pedsalga@upv.edu.es
