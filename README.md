@@ -63,8 +63,10 @@ of as many colors of you needed.
 
 ``` r
 library(RColorConesa)
+
 n_species <- length(levels(iris$Species))
 colorSpecies <- colorConesa(n_species, palette = "main")
+
 plot(x = iris$Sepal.Length, y = iris$Sepal.Width, col = colorSpecies[iris$Species], pch = 16)
 legend("bottomleft", legend=c(levels(iris$Species)), col=colorSpecies, lty=1)
 ```
