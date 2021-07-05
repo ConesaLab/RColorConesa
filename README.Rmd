@@ -32,21 +32,30 @@ The package RColorConesa is a color packages with different palletes inspired by
 
 ## Palettes
 
-RColorConesa consists of seven main colours from which a number of different colour palettes have been created.
+RColorConesa consists of seven main colours from which a number of different colour palettes have been created. Each palette have the discrete and the continuous form as you can see in next examples.
 
 ```{r palettes, echo=F, warning=F, message=F}
 library(RColorConesa)
 library(ggplot2)
+n_continuous <- 8
+n_continuous_complete <- 15
 ```
 
 ```{r colors, echo=F, warning=F, eval=F}
 paletteList <- getConesaPalettes()
 
 for(palette in names(paletteList)){
-  print(paste0("## ", palette))
-
   ncolor <- length(paletteList[palette][[1]])
   colors <- paletteList[palette][[1]]
+  palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
+    scale_fill_conesa(palette = palette) +
+    theme_void()+
+    theme(legend.position="none")
+  print(palette_image)
+  
+  if(palette=="complete"){ncolor <- 15}
+  else{ncolor <- n_continuous}
+  colors <- colorConesa(ncolor, palette = palette)
   palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
     scale_fill_conesa(palette = palette) +
     theme_void()+
@@ -68,6 +77,14 @@ palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), 
   theme_void()+
   theme(legend.position="none")
 print(palette_image)
+
+ncolor <- n_continuous
+colors <- colorConesa(ncolor, palette = palette)
+palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
+  scale_fill_conesa(palette = palette) +
+  theme_void()+
+  theme(legend.position="none")
+print(palette_image)
 ```
 
 ## Palette - nature
@@ -78,6 +95,14 @@ palette = "nature"
 
 ncolor <- length(paletteList[palette][[1]])
 colors <- paletteList[palette][[1]]
+palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
+  scale_fill_conesa(palette = palette) +
+  theme_void()+
+  theme(legend.position="none")
+print(palette_image)
+
+ncolor <- n_continuous
+colors <- colorConesa(ncolor, palette = palette)
 palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
   scale_fill_conesa(palette = palette) +
   theme_void()+
@@ -98,6 +123,14 @@ palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), 
   theme_void()+
   theme(legend.position="none")
 print(palette_image)
+
+ncolor <- n_continuous
+colors <- colorConesa(ncolor, palette = palette)
+palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
+  scale_fill_conesa(palette = palette) +
+  theme_void()+
+  theme(legend.position="none")
+print(palette_image)
 ```
 
 ## Palette - hot
@@ -108,6 +141,14 @@ palette = "hot"
 
 ncolor <- length(paletteList[palette][[1]])
 colors <- paletteList[palette][[1]]
+palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
+  scale_fill_conesa(palette = palette) +
+  theme_void()+
+  theme(legend.position="none")
+print(palette_image)
+
+ncolor <- n_continuous
+colors <- colorConesa(ncolor, palette = palette)
 palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
   scale_fill_conesa(palette = palette) +
   theme_void()+
@@ -128,6 +169,14 @@ palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), 
   theme_void()+
   theme(legend.position="none")
 print(palette_image)
+
+ncolor <- n_continuous
+colors <- colorConesa(ncolor, palette = palette)
+palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
+  scale_fill_conesa(palette = palette) +
+  theme_void()+
+  theme(legend.position="none")
+print(palette_image)
 ```
 
 ## Palette - cold
@@ -143,6 +192,14 @@ palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), 
   theme_void()+
   theme(legend.position="none")
 print(palette_image)
+
+ncolor <- n_continuous
+colors <- colorConesa(ncolor, palette = palette)
+palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
+  scale_fill_conesa(palette = palette) +
+  theme_void()+
+  theme(legend.position="none")
+print(palette_image)
 ```
 
 ## Palette - complete
@@ -153,6 +210,14 @@ palette = "complete"
 
 ncolor <- length(paletteList[palette][[1]])
 colors <- paletteList[palette][[1]]
+palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
+  scale_fill_conesa(palette = palette) +
+  theme_void()+
+  theme(legend.position="none")
+print(palette_image)
+
+ncolor <- n_continuous_complete
+colors <- colorConesa(ncolor, palette = palette)
 palette_image <- qplot(x=1:ncolor, y = 1, fill=factor(colors, levels = colors), geom="tile") +
   scale_fill_conesa(palette = palette) +
   theme_void()+

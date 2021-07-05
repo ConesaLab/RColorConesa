@@ -22,35 +22,36 @@ inspired by the corporative image of the Conesa Lab.
 ## Palettes
 
 RColorConesa consists of seven main colours from which a number of
-different colour palettes have been created.
+different colour palettes have been created. Each palette have the
+discrete and the continuous form as you can see in next examples.
 
 ## Palette - main
 
-<img src="man/figures/README-palette1-1.png" width="100%" />
+<img src="man/figures/README-palette1-1.png" width="100%" /><img src="man/figures/README-palette1-2.png" width="100%" />
 
 ## Palette - nature
 
-<img src="man/figures/README-palette2-1.png" width="100%" />
+<img src="man/figures/README-palette2-1.png" width="100%" /><img src="man/figures/README-palette2-2.png" width="100%" />
 
 ## Palette - sunshine
 
-<img src="man/figures/README-palette3-1.png" width="100%" />
+<img src="man/figures/README-palette3-1.png" width="100%" /><img src="man/figures/README-palette3-2.png" width="100%" />
 
 ## Palette - hot
 
-<img src="man/figures/README-palette4-1.png" width="100%" />
+<img src="man/figures/README-palette4-1.png" width="100%" /><img src="man/figures/README-palette4-2.png" width="100%" />
 
 ## Palette - warm
 
-<img src="man/figures/README-palette5-1.png" width="100%" />
+<img src="man/figures/README-palette5-1.png" width="100%" /><img src="man/figures/README-palette5-2.png" width="100%" />
 
 ## Palette - cold
 
-<img src="man/figures/README-palette6-1.png" width="100%" />
+<img src="man/figures/README-palette6-1.png" width="100%" /><img src="man/figures/README-palette6-2.png" width="100%" />
 
 ## Palette - complete
 
-<img src="man/figures/README-palette7-1.png" width="100%" />
+<img src="man/figures/README-palette7-1.png" width="100%" /><img src="man/figures/README-palette7-2.png" width="100%" />
 
 ## Example - plot()
 
