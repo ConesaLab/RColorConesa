@@ -4,12 +4,12 @@
 \alias{scale_fill_conesa}
 \title{Fill scale constructor for conesa colors}
 \usage{
-scale_fill_conesa(palette = "main", discrete = TRUE, reverse = FALSE, ...)
+scale_fill_conesa(palette = "main", continuous = FALSE, reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Character name of palette in conesa_palettes c("main", "nature", "sunshine", "hot", "warm", "cold", "complete") are avairable.}
 
-\item{discrete}{Boolean indicating whether color aesthetic is discrete or not}
+\item{continuous}{Boolean indicating whether color aesthetic is discrete or not}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
 

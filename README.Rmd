@@ -32,7 +32,7 @@ The package RColorConesa is a color packages with different palletes inspired by
 
 ## Palettes
 
-RColorConesa consists of seven main colours from which a number of different colour palettes have been created. Each palette have the discrete and the continuous form as you can see in next examples.
+RColorConesa consists of seven main colours from which a number of different colour palettes have been created. Each palette have the continuous and the continuous form as you can see in next examples.
 
 ```{r palettes, echo=F, warning=F, message=F}
 library(RColorConesa)
@@ -44,6 +44,7 @@ n_continuous_complete <- 15
 ```{r colors, echo=F, warning=F, eval=F}
 paletteList <- getConesaPalettes()
 
+#Thank to Matifou - https://stackoverflow.com/questions/25726276/visualize-a-list-of-colors-palette-in-r
 for(palette in names(paletteList)){
   ncolor <- length(paletteList[palette][[1]])
   colors <- paletteList[palette][[1]]
@@ -66,7 +67,7 @@ for(palette in names(paletteList)){
 
 ## Palette - main
 
-```{r palette1, echo=F}
+```{r palette1, echo=F, fig.height=1.5}
 paletteList <- getConesaPalettes()
 palette = "main"
 
@@ -89,7 +90,7 @@ print(palette_image)
 
 ## Palette - nature
 
-```{r palette2, echo=F}
+```{r palette2, echo=F, fig.height=1.5}
 paletteList <- getConesaPalettes()
 palette = "nature"
 
@@ -112,7 +113,7 @@ print(palette_image)
 
 ## Palette - sunshine
 
-```{r palette3, echo=F}
+```{r palette3, echo=F, fig.height=1.5}
 paletteList <- getConesaPalettes()
 palette = "sunshine"
 
@@ -135,7 +136,7 @@ print(palette_image)
 
 ## Palette - hot
 
-```{r palette4, echo=F}
+```{r palette4, echo=F, fig.height=1.5}
 paletteList <- getConesaPalettes()
 palette = "hot"
 
@@ -158,7 +159,7 @@ print(palette_image)
 
 ## Palette - warm
 
-```{r palette5, echo=F}
+```{r palette5, echo=F, fig.height=1.5}
 paletteList <- getConesaPalettes()
 palette = "warm"
 
@@ -181,7 +182,7 @@ print(palette_image)
 
 ## Palette - cold
 
-```{r palette6, echo=F}
+```{r palette6, echo=F, fig.height=1.5}
 paletteList <- getConesaPalettes()
 palette = "cold"
 
@@ -204,7 +205,7 @@ print(palette_image)
 
 ## Palette - complete
 
-```{r palette7, echo=F}
+```{r palette7, echo=F, fig.height=1.5}
 paletteList <- getConesaPalettes()
 palette = "complete"
 
@@ -270,7 +271,7 @@ ggplot(mpg, aes(manufacturer, fill = manufacturer)) +
   scale_fill_conesa(palette = "complete")
 ```
 
-Finally, for continuos variables, you can change the parameter discrete to False in the functions "scale_fill_conesa()" and "scale_fill_conesa()".
+Finally, for continuous variables, you can change the parameter continuous to True in the functions "scale_fill_conesa()" and "scale_fill_conesa()".
 
 ```{r example - continuous}
 library(RColorConesa)
@@ -281,12 +282,11 @@ df.heatmap$score <- runif(nrow(df.heatmap), min = -5, max = 5)
 
 ggplot(df.heatmap, aes(x = Var1, y = Var2, fill = score)) + 
   geom_tile() + 
-  scale_fill_conesa(palette = "sunshine", discrete = F)
+  scale_fill_conesa(palette = "sunshine", continuous = T)
 ```
 
 # Contact
 Note that RColorConesa can be updated. If you encounter a problem, please open an issue via GitHub or send an email to pedsalga@upv.edu.es.
 
 # Author
-
 Pedro Salguero García - pedsalga@upv.edu.es
