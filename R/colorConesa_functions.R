@@ -97,10 +97,10 @@ colorConesa <- function(n, reverse = F, palette = "complete"){
 #' Color scale constructor for conesa colors
 #'
 #' @param palette Character name of palette in conesa_palettes: c("main", "nature", "sunshine", "hot", "warm", "cold", "complete") are avairable.
-#' @param continuous Boolean indicating whether color aesthetic is discrete or not
+#' @param continuous Boolean indicating whether color aesthetic is continuous or not
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale() or
-#'            scale_color_gradientn(), used respectively when discrete is TRUE or FALSE
+#'            scale_color_gradientn(), used respectively when continuous is TRUE or FALSE
 #'
 #' @examples
 #' library(ggplot2)
@@ -127,10 +127,10 @@ scale_color_conesa <- function(palette = "main", continuous = FALSE, reverse = F
 #' Fill scale constructor for conesa colors
 #'
 #' @param palette Character name of palette in conesa_palettes c("main", "nature", "sunshine", "hot", "warm", "cold", "complete") are avairable.
-#' @param continuous Boolean indicating whether color aesthetic is discrete or not
+#' @param continuous Boolean indicating whether color aesthetic is continuous or not
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to discrete_scale() or
-#'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
+#'            scale_fill_gradientn(), used respectively when continuous is TRUE or FALSE
 #'
 #' @examples
 #' library(ggplot2)
