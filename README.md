@@ -23,35 +23,40 @@ inspired by the corporative image of the Conesa Lab.
 
 RColorConesa consists of seven main colours from which a number of
 different colour palettes have been created. Each palette have the
-discrete and the continuous form as you can see in next examples.
+continuous and the continuous form as you can see in next examples.
 
 ## Palette - main
 
-<img src="man/figures/README-palette1-1.png" width="100%" /><img src="man/figures/README-palette1-2.png" width="100%" />
+    #> Warning: `qplot()` was deprecated in ggplot2 3.4.0.
+    #> This warning is displayed once every 8 hours.
+    #> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+    #> generated.
+
+<img src="images/palette1-1.png" width="100%" /><img src="images/palette1-2.png" width="100%" />
 
 ## Palette - nature
 
-<img src="man/figures/README-palette2-1.png" width="100%" /><img src="man/figures/README-palette2-2.png" width="100%" />
+<img src="images/palette2-1.png" width="100%" /><img src="images/palette2-2.png" width="100%" />
 
 ## Palette - sunshine
 
-<img src="man/figures/README-palette3-1.png" width="100%" /><img src="man/figures/README-palette3-2.png" width="100%" />
+<img src="images/palette3-1.png" width="100%" /><img src="images/palette3-2.png" width="100%" />
 
 ## Palette - hot
 
-<img src="man/figures/README-palette4-1.png" width="100%" /><img src="man/figures/README-palette4-2.png" width="100%" />
+<img src="images/palette4-1.png" width="100%" /><img src="images/palette4-2.png" width="100%" />
 
 ## Palette - warm
 
-<img src="man/figures/README-palette5-1.png" width="100%" /><img src="man/figures/README-palette5-2.png" width="100%" />
+<img src="images/palette5-1.png" width="100%" /><img src="images/palette5-2.png" width="100%" />
 
 ## Palette - cold
 
-<img src="man/figures/README-palette6-1.png" width="100%" /><img src="man/figures/README-palette6-2.png" width="100%" />
+<img src="images/palette6-1.png" width="100%" /><img src="images/palette6-2.png" width="100%" />
 
 ## Palette - complete
 
-<img src="man/figures/README-palette7-1.png" width="100%" /><img src="man/figures/README-palette7-2.png" width="100%" />
+<img src="images/palette7-1.png" width="100%" /><img src="images/palette7-2.png" width="100%" />
 
 ## Example - plot()
 
@@ -72,13 +77,13 @@ plot(x = iris$Sepal.Length, y = iris$Sepal.Width, col = colorSpecies[iris$Specie
 legend("bottomleft", legend=c(levels(iris$Species)), col=colorSpecies, lty=1)
 ```
 
-<img src="man/figures/README-example plot-1.png" width="100%" />
+<img src="images/example plot-1.png" width="100%" />
 
 ## Example - ggplot()
 
 In case of ggplot(), if we want to plot by color it is much more easier
-to do with the functions “scale\_color\_conesa()” and
-“scale\_fill\_conesa()”. We plot the same result we made before.
+to do with the functions “scale_color_conesa()” and
+“scale_fill_conesa()”. We plot the same result we made before.
 
 ``` r
 library(RColorConesa)
@@ -89,7 +94,7 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
   scale_color_conesa(palette = "main")
 ```
 
-<img src="man/figures/README-example ggplot-1.png" width="100%" />
+<img src="images/example ggplot-1.png" width="100%" />
 
 A good point for the packages is you can use more colors that it already
 have. For example, we are going to color each Manufacturer from the
@@ -110,11 +115,11 @@ ggplot(mpg, aes(manufacturer, fill = manufacturer)) +
   scale_fill_conesa(palette = "complete")
 ```
 
-<img src="man/figures/README-example ggplot - fill-1.png" width="100%" />
+<img src="images/example ggplot - fill-1.png" width="100%" />
 
-Finally, for continuos variables, you can change the parameter discrete
-to False in the functions “scale\_fill\_conesa()” and
-“scale\_fill\_conesa()”.
+Finally, for continuous variables, you can change the parameter
+continuous to True in the functions “scale_fill_conesa()” and
+“scale_fill_conesa()”.
 
 ``` r
 library(RColorConesa)
@@ -125,10 +130,10 @@ df.heatmap$score <- runif(nrow(df.heatmap), min = -5, max = 5)
 
 ggplot(df.heatmap, aes(x = Var1, y = Var2, fill = score)) + 
   geom_tile() + 
-  scale_fill_conesa(palette = "sunshine", discrete = F)
+  scale_fill_conesa(palette = "sunshine", continuous = T)
 ```
 
-<img src="man/figures/README-example - continuous-1.png" width="100%" />
+<img src="images/example - continuous-1.png" width="100%" />
 
 # Contact
 

@@ -1,4 +1,7 @@
-^RColorConesa\.Rproj$
+^.*\.Rproj$
 ^\.Rproj\.user$
-^LICENSE\.md$
-^README\.Rmd$
+^README.Rmd
+^LICENSE.md
+^images
+
+

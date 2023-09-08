@@ -9,12 +9,12 @@ scale_color_conesa(palette = "main", continuous = FALSE, reverse = FALSE, ...)
 \arguments{
 \item{palette}{Character name of palette in conesa_palettes: c("main", "nature", "sunshine", "hot", "warm", "cold", "complete") are avairable.}
 
-\item{continuous}{Boolean indicating whether color aesthetic is discrete or not}
+\item{continuous}{Boolean indicating whether color aesthetic is continuous or not}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
 
 \item{...}{Additional arguments passed to discrete_scale() or
-scale_color_gradientn(), used respectively when discrete is TRUE or FALSE}
+scale_color_gradientn(), used respectively when continuous is TRUE or FALSE}
 }
 \description{
 Color scale constructor for conesa colors

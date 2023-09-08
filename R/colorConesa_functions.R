@@ -87,8 +87,10 @@ colorConesa <- function(n, reverse = F, palette = "complete"){
 
   pal <- conesa_pal(palette = palette, reverse = reverse)
 
-  if(n<length(getConesaPalettes()[[palette]])){
-    return(getConesaPalettes()[[palette]][1:n])
+  if(n<=length(getConesaPalettes()[[palette]])){
+    colors <- getConesaPalettes()[[palette]][1:n]
+    names(colors) <- NULL
+    return(colors)
   }
 
   return(pal(n))
@@ -111,7 +113,7 @@ colorConesa <- function(n, reverse = F, palette = "complete"){
 #' @export
 scale_color_conesa <- function(palette = "main", continuous = FALSE, reverse = FALSE, ...) {
   if(!palette %in% names(conesa_palettes)){
-    message("Palette musst be some of the following palettes: ", paste(names(conesa_palettes),sep=" ", collapse=", "))
+    message("Palette must be some of the following palettes: ", paste(names(conesa_palettes),sep=" ", collapse=", "))
     stop()
   }
 
@@ -142,7 +144,7 @@ scale_color_conesa <- function(palette = "main", continuous = FALSE, reverse = F
 #' @export
 scale_fill_conesa <- function(palette = "main", continuous = FALSE, reverse = FALSE, ...) {
   if(!palette %in% names(conesa_palettes)){
-    message("Palette musst be some of the following palettes: ", paste(names(conesa_palettes),sep=" ", collapse=", "))
+    message("Palette must be some of the following palettes: ", paste(names(conesa_palettes),sep=" ", collapse=", "))
     stop()
   }
 
