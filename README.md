@@ -5,7 +5,14 @@
 
 ## Installation
 
-You can install the released version of RColorConesa from GitHub with:
+You can install RColorConesa from CRAN repository with:
+
+``` r
+install.packages("RColorConesa")
+```
+
+or you can install the released version of RColorConesa from GitHub
+with:
 
 ``` r
 # install.packages("devtools")
@@ -130,7 +137,7 @@ df.heatmap$score <- runif(nrow(df.heatmap), min = -5, max = 5)
 
 ggplot(df.heatmap, aes(x = Var1, y = Var2, fill = score)) + 
   geom_tile() + 
-  scale_fill_conesa(palette = "sunshine", continuous = T)
+  scale_fill_conesa(palette = "sunshine", continuous = TRUE)
 ```
 
 <img src="images/example - continuous-1.png" width="100%" />
