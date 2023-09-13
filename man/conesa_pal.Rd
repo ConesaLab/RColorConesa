@@ -2,17 +2,23 @@
 % Please edit documentation in R/colorConesa_functions.R
 \name{conesa_pal}
 \alias{conesa_pal}
-\title{Return function to interpolate a conesa color palette}
+\title{Interpolate a Conesa Color Palette}
 \usage{
 conesa_pal(palette = "main", reverse = FALSE, ...)
 }
 \arguments{
-\item{palette}{Character name of palette in conesa_palettes: c("main", "nature", "sunshine", "hot", "warm", "cold", "complete") are avairable.}
+\item{palette}{A character string specifying the name of the desired palette from the \code{conesa_palettes}. Available options include: "main", "nature", "sunshine", "hot", "warm", "cold", and "complete".}
 
-\item{reverse}{Boolean indicating whether the palette should be reversed}
+\item{reverse}{A logical value indicating whether the colors in the selected palette should be reversed. Default is \code{FALSE}.}
 
-\item{...}{Additional arguments to pass to colorRampPalette()}
+\item{...}{Additional arguments to be passed to the \code{colorRampPalette} function from the \code{grDevices} package.}
 }
 \description{
-Return function to interpolate a conesa color palette
+The \code{conesa_pal} function offers a flexible way to interpolate colors from the Conesa color palettes. This function provides an interface to generate a range of colors based on the selected Conesa palette, allowing for enhanced customization in scientific visualizations.
+}
+\details{
+The Conesa color palettes, available in the RColorConesa package, have been specifically curated for scientific visualizations. The \code{conesa_pal} function leverages the \code{colorRampPalette} function from the \code{grDevices} package to interpolate between the colors of the chosen Conesa palette. This interpolation capability ensures that users can generate a continuous range of colors, suitable for representing a wide variety of data types and scales. Whether visualizing continuous data gradients or categorical distinctions, the interpolated Conesa palettes can provide clarity and aesthetic appeal to the visual representation.
+}
+\author{
+Pedro Salguero Garcia. Maintainer: pedsalga@upv.edu.es
 }

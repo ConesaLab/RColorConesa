@@ -7,22 +7,33 @@
 scale_color_conesa(palette = "main", continuous = FALSE, reverse = FALSE, ...)
 }
 \arguments{
-\item{palette}{Character name of palette in conesa_palettes: c("main", "nature", "sunshine", "hot", "warm", "cold", "complete") are avairable.}
+\item{palette}{A character string specifying the name of the desired palette from the \code{conesa_palettes}. Available options include: "main", "nature", "sunshine", "hot", "warm", "cold", and "complete" (Default: "main").}
 
-\item{continuous}{Boolean indicating whether color aesthetic is continuous or not}
+\item{continuous}{A logical value indicating whether the color aesthetic represents continuous data (Default: \code{FALSE}).}
 
-\item{reverse}{Boolean indicating whether the palette should be reversed}
+\item{reverse}{A logical value indicating whether the colors in the selected palette should be reversed (Default: \code{FALSE}).}
 
-\item{...}{Additional arguments passed to discrete_scale() or
-scale_color_gradientn(), used respectively when continuous is TRUE or FALSE}
+\item{...}{Additional arguments passed either to \code{discrete_scale} or \code{scale_color_gradientn} from the \code{ggplot2} package, depending on the value of the \code{continuous} parameter.}
+}
+\value{
+A \code{ggplot2} scale function suitable for adding to a \code{ggplot2} object.
 }
 \description{
-Color scale constructor for conesa colors
+The \code{scale_color_conesa} function provides a mechanism to integrate ConesaLab's curated color palettes into \code{ggplot2} visualizations.
+}
+\details{
+The \code{scale_color_conesa} function acts as a bridge between these palettes and the \code{ggplot2} package, allowing users to apply the palettes to their plots Depending on the nature of the data (continuous or discrete), the function intelligently selects the appropriate scale from \code{ggplot2} to render the colors.
+
+When the \code{continuous} parameter is set to \code{TRUE}, the function employs the \code{scale_color_gradientn} function from \code{ggplot2} to generate a continuous color scale. Conversely, for discrete data, the \code{discrete_scale} function is utilized. This ensures that the chosen palette is optimally represented in the plot, irrespective of the data type.
 }
 \examples{
 library(ggplot2)
+data("iris")
 g <- ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species))
 g <- g + geom_point(size = 4)
 g <- g + scale_color_conesa(palette = "main")
 
+}
+\author{
+Pedro Salguero Garcia. Maintainer: pedsalga@upv.edu.es
 }

@@ -2,10 +2,23 @@
 % Please edit documentation in R/colorConesa_functions.R
 \name{getConesaPalettes}
 \alias{getConesaPalettes}
-\title{Return conesa palette}
+\title{Return Conesa Color Palettes}
 \usage{
 getConesaPalettes()
 }
+\value{
+A list containing the various color palettes from the Conesa collection. Each palette in the list is represented as a vector of color values.
+}
 \description{
-Return a list of the different palettes with their colors.
+The \code{getConesaPalettes} function retrieves a collection of color palettes, specifically designed for scientific visualizations. These palettes are part of the Conesa collection.
+}
+\details{
+By using the \code{getConesaPalettes} function, users can access these palettes and incorporate them into their visualizations, ensuring that their plots and graphs are both informative and visually appealing.
+}
+\examples{
+getConesaPalettes()
+
+}
+\author{
+Pedro Salguero Garcia. Maintainer: pedsalga@upv.edu.es
 }

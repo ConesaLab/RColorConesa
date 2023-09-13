@@ -2,22 +2,35 @@
 % Please edit documentation in R/colorConesa_functions.R
 \name{colorConesa}
 \alias{colorConesa}
-\title{colorConesa}
+\title{Retrieve Colors from ConesaLab's Palettes}
 \usage{
-colorConesa(n, reverse = F, palette = "complete")
+colorConesa(n, reverse = FALSE, palette = "complete")
 }
 \arguments{
-\item{n}{Number of colors you need}
+\item{n}{An integer specifying the number of colors to be extracted from the chosen palette.}
 
-\item{reverse}{Boolean indicating whether the palette should be reversed}
+\item{reverse}{A logical value indicating whether the colors in the selected palette should be reversed (Default: \code{FALSE}).}
 
-\item{palette}{Character name of palette in conesa_palettes: c("main", "nature", "sunshine", "hot", "warm", "cold", "complete") are avairable.}
+\item{palette}{A character string specifying the name of the desired palette from the \code{conesa_palettes}. Available options include: "main", "nature", "sunshine", "hot", "warm", "cold", and "complete" (Default: "complete").}
+}
+\value{
+A character vector of colors corresponding to the specified number and palette.
 }
 \description{
-Returns as many colours as you need from ConesaLab's color palettes.
+The \code{colorConesa} function facilitates the extraction of a specified number of colors from the ConesaLab's curated color palettes. This function is designed to obtain a set of colors for their scientific visualizations.
+}
+\details{
+ConesaLab's color palettes, available within the package, are tailored for scientific data visualization. The \code{colorConesa} function is built upon these palettes, offering flexibility in color selection based on the user's requirements. It integrates with the \code{palette} argument to choose the color thematic.
+
+It's essential to note that if the requested number of colors (\code{n}) is less than or equal to the size of the chosen palette, the function will directly extract the colors without interpolation. However, if \code{n} surpasses the palette size, interpolation is employed to generate the required colors.
 }
 \examples{
-colorSpecies <- colorConesa(3, palette = "main")
+library(ggplot2)
+data("iris")
+colorSpecies <- colorConesa(3, palette = "cold")
 plot(x = iris$Sepal.Length, y = iris$Sepal.Width, col = colorSpecies[iris$Species], pch = 16)
 
+}
+\author{
+Pedro Salguero Garcia. Maintainer: pedsalga@upv.edu.es
 }

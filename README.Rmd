@@ -17,7 +17,13 @@ knitr::opts_chunk$set(
 
 ## Installation
 
-You can install the released version of RColorConesa from GitHub with:
+You can install RColorConesa from CRAN repository with:
+
+``` r
+install.packages("RColorConesa")
+```
+
+or you can install the released version of RColorConesa from GitHub with:
 
 ``` r
 # install.packages("devtools")
@@ -34,14 +40,14 @@ The package RColorConesa is a color packages with different palletes inspired by
 
 RColorConesa consists of seven main colours from which a number of different colour palettes have been created. Each palette have the continuous and the continuous form as you can see in next examples.
 
-```{r palettes, echo=F, warning=F, message=F}
+```{r palettes, echo=FALSE, warning=FALSE, message=FALSE}
 library(RColorConesa)
 library(ggplot2)
 n_continuous <- 8
 n_continuous_complete <- 15
 ```
 
-```{r colors, echo=F, warning=F, eval=F}
+```{r colors, echo=FALSE, warning=FALSE, eval=FALSE}
 paletteList <- getConesaPalettes()
 
 #Thank to Matifou - https://stackoverflow.com/questions/25726276/visualize-a-list-of-colors-palette-in-r
@@ -67,7 +73,7 @@ for(palette in names(paletteList)){
 
 ## Palette - main
 
-```{r palette1, echo=F, fig.height=1.5}
+```{r palette1, echo=FALSE, fig.height=1.5}
 paletteList <- getConesaPalettes()
 palette = "main"
 
@@ -90,7 +96,7 @@ print(palette_image)
 
 ## Palette - nature
 
-```{r palette2, echo=F, fig.height=1.5}
+```{r palette2, echo=FALSE, fig.height=1.5}
 paletteList <- getConesaPalettes()
 palette = "nature"
 
@@ -113,7 +119,7 @@ print(palette_image)
 
 ## Palette - sunshine
 
-```{r palette3, echo=F, fig.height=1.5}
+```{r palette3, echo=FALSE, fig.height=1.5}
 paletteList <- getConesaPalettes()
 palette = "sunshine"
 
@@ -136,7 +142,7 @@ print(palette_image)
 
 ## Palette - hot
 
-```{r palette4, echo=F, fig.height=1.5}
+```{r palette4, echo=FALSE, fig.height=1.5}
 paletteList <- getConesaPalettes()
 palette = "hot"
 
@@ -159,7 +165,7 @@ print(palette_image)
 
 ## Palette - warm
 
-```{r palette5, echo=F, fig.height=1.5}
+```{r palette5, echo=FALSE, fig.height=1.5}
 paletteList <- getConesaPalettes()
 palette = "warm"
 
@@ -182,7 +188,7 @@ print(palette_image)
 
 ## Palette - cold
 
-```{r palette6, echo=F, fig.height=1.5}
+```{r palette6, echo=FALSE, fig.height=1.5}
 paletteList <- getConesaPalettes()
 palette = "cold"
 
@@ -205,7 +211,7 @@ print(palette_image)
 
 ## Palette - complete
 
-```{r palette7, echo=F, fig.height=1.5}
+```{r palette7, echo=FALSE, fig.height=1.5}
 paletteList <- getConesaPalettes()
 palette = "complete"
 
@@ -282,7 +288,7 @@ df.heatmap$score <- runif(nrow(df.heatmap), min = -5, max = 5)
 
 ggplot(df.heatmap, aes(x = Var1, y = Var2, fill = score)) + 
   geom_tile() + 
-  scale_fill_conesa(palette = "sunshine", continuous = T)
+  scale_fill_conesa(palette = "sunshine", continuous = TRUE)
 ```
 
 # Contact

@@ -2,12 +2,10 @@ Package: RColorConesa
 Title: Conesa Colors Palette
 Version: 1.0.0
 Authors@R: 
-    person(given = "Pedro",
-           family = "Salguero",
-           role = c("aut", "cre"),
-           email = "pedsalga@upv.edu.es",
+    person("Pedro", "Salguero Garcia", , "pedrosalguerog@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-1879-3374"))
-Description: The packages adds different palettes for ggplot to work with the ConesaLab colors.
+Maintainer: Pedro Salguero Garcia <pedrosalguerog@gmail.com>
+Description: Provides a collection of palettes designed to integrate with 'ggplot', reflecting the color schemes associated with 'ConesaLab'.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
