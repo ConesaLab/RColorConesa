@@ -146,9 +146,10 @@ ggplot(df.heatmap, aes(x = Var1, y = Var2, fill = score)) +
 
 Note that RColorConesa can be updated. If you encounter a problem,
 please open an issue via GitHub or send an email to
-<pedsalga@upv.edu.es>.
+<conesalab@csic.es>.
 
 # Author
 
 Pedro Salguero
+
 ConesaLab - conesalab@csic.es
