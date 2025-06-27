@@ -150,4 +150,4 @@ please open an issue via GitHub or send an email to
 
 # Author
 
-Pedro Salguero García - <pedsalga@upv.edu.es>
+Pedro Salguero - <pedsalga@upv.edu.es>
