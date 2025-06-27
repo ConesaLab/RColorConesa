@@ -150,4 +150,5 @@ please open an issue via GitHub or send an email to
 
 # Author
 
-Pedro Salguero - <pedsalga@upv.edu.es>
+Pedro Salguero
+ConesaLab - conesalab@csic.es
